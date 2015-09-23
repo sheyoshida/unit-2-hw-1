@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LocationViewController.h"
+
 
 @interface DetailViewController : UIViewController
+
+@property (nonatomic) NSString *businessName;
+
 
 @end

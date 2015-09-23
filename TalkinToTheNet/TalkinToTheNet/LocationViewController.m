@@ -8,7 +8,7 @@
 
 #import "LocationViewController.h"
 #import "DetailViewController.h"
-#import "FourSquareSearchResult.h" // do I need this?
+#import "FourSquareSearchResult.h"
 #import "APIManager.h"
 
 @interface LocationViewController ()
@@ -19,8 +19,10 @@ UITextFieldDelegate
 >
 
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITableView *listTableView;
 @property (nonatomic) NSMutableArray *searchResults;
+@property (nonatomic) NSArray *distance;
+
 
 @end
 
@@ -31,8 +33,8 @@ UITextFieldDelegate
     [super viewDidLoad];
 
     // connect the delegate(s)
-    self.tableView.delegate = self;
-    self.tableView.dataSource = self;
+    self.listTableView.delegate = self;
+    self.listTableView.dataSource = self;
     self.searchTextField.delegate = self;
 }
 
@@ -77,24 +79,30 @@ UITextFieldDelegate
                 
                 NSString *address = [venueLocation valueForKey:@"address"];
                 NSString *city = [venueLocation valueForKey:@"city"];
-                NSString *distance = [venueLocation valueForKey:@"distance"];  // eventually organize by distance
                 
-                if (address == nil) {
-                    address = @"";
-                }
-                if (city == nil) {
-                    city = @"";
-                }
-                if (distance == nil) {
-                    distance = @"";
-                }
+                NSString *distance = [venueLocation valueForKey:@"distance"];   // get the distance then learn how to sort it...
+              // NSLog(@"%@", distance);
+
+// include businesses without full address info:
+//                if (address == nil) {
+//                    address = @"";
+//                }
+//                if (city == nil) {
+//                    city = @"";
+//                }
+//                if (distance == nil) {
+//                    distance = @"";
+//                }
                 
                 FourSquareSearchResult *resultsObject = [[FourSquareSearchResult alloc]init];
                 
                 resultsObject.restaurantName = venueName;
                 resultsObject.restaurantAddress = [NSString stringWithFormat:@"%@, %@", address, city];
+                resultsObject.restaurantDistance = distance;
                 
                 [self.searchResults addObject:resultsObject];
+                
+                //NSLog(@"%@", self.searchResults);
             }
             block();
         }
@@ -108,7 +116,7 @@ UITextFieldDelegate
     
     [self makeNewFourSquareAPIRequestWithSearchTerm:textField.text callbackBlock:^{ //make an API request
         
-        [self.tableView reloadData]; // reload table data
+        [self.listTableView reloadData]; // reload table data
     }];
     return YES;
 }
@@ -133,5 +141,22 @@ UITextFieldDelegate
     
     return cell;
 }
+
+#pragma mark - prepareForSegue
+
+//- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+//    
+//    if ([segue.identifier isEqualToString:@"showDetailViewControllerIdentifier"]) { // reference segue title
+//        
+//        NSLog(@"everything is ok!"); 
+//        NSIndexPath *myIndexPath = [self.listTableView indexPathForSelectedRow]; // this line is wacky
+//        NSString *selected = [self.searchResults objectAtIndex:myIndexPath.row];
+//        
+//        DetailViewController *dvc = segue.destinationViewController; // referene to dvc
+//        
+//        dvc.businessName = selected; 
+//    }
+//}
+//
 
 @end

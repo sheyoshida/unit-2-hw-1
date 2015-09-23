@@ -71,6 +71,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="qZf-TF-KOb" kind="show" identifier="showDetailViewControllerIdentifier" id="bc2-Av-Pme"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -88,8 +91,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="eWy-mo-Iph"/>
                     <connections>
+                        <outlet property="listTableView" destination="CFt-zS-PyC" id="cDn-6D-kmd"/>
                         <outlet property="searchTextField" destination="yBo-9b-k1x" id="DcD-AG-WIH"/>
-                        <outlet property="tableView" destination="CFt-zS-PyC" id="3FV-K7-6vu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
