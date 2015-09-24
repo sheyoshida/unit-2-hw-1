@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "LocationViewController.h"
+#import "FourSquareSearchResult.h"
 
 
 @interface DetailViewController : UIViewController
 
-@property (nonatomic) NSString *businessName;
+@property (nonatomic) FourSquareSearchResult *dataPassed;
 
 
 @end

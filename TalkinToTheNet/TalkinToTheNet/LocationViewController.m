@@ -22,7 +22,7 @@ UITextFieldDelegate
 @property (weak, nonatomic) IBOutlet UITableView *listTableView;
 @property (nonatomic) NSMutableArray *searchResults;
 @property (nonatomic) NSArray *distance;
-
+@property (nonatomic) FourSquareSearchResult *businessDetails;
 
 @end
 
@@ -38,7 +38,13 @@ UITextFieldDelegate
     self.searchTextField.delegate = self;
 }
 
-#pragma mark - APIManager method
+#pragma mark - Instagram API Request
+- (void)makeNewInstagramAPIRequestWithSearchTerm: (NSString *)searchTerm // pass instagram search term
+                                    callbackBlock:(void(^)())block { // call block
+   block();
+}
+
+#pragma mark - FourSquare API Request
 - (void)makeNewFourSquareAPIRequestWithSearchTerm: (NSString *)searchTerm // pass four square search term
                                     callbackBlock:(void(^)())block { // call block
     
@@ -144,19 +150,15 @@ UITextFieldDelegate
 
 #pragma mark - prepareForSegue
 
-//- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-//    
-//    if ([segue.identifier isEqualToString:@"showDetailViewControllerIdentifier"]) { // reference segue title
-//        
-//        NSLog(@"everything is ok!"); 
-//        NSIndexPath *myIndexPath = [self.listTableView indexPathForSelectedRow]; // this line is wacky
-//        NSString *selected = [self.searchResults objectAtIndex:myIndexPath.row];
-//        
-//        DetailViewController *dvc = segue.destinationViewController; // referene to dvc
-//        
-//        dvc.businessName = selected; 
-//    }
-//}
-//
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+  //  if ([segue.identifier isEqualToString:@"showDetailViewControllerIdentifier"]) { // reference segue title
+    
+        NSIndexPath *myIndexPath = [self.listTableView indexPathForSelectedRow];
+        FourSquareSearchResult *dataToPass = self.searchResults[myIndexPath.row];
+        DetailViewController *dvc = segue.destinationViewController; // referene to dvc
+        dvc.dataPassed = dataToPass;
+    }
+
 
 @end

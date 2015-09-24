@@ -8,8 +8,11 @@
 
 #import "DetailViewController.h"
 
-
 @interface DetailViewController ()
+
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *addressLabel;
+@property (strong, nonatomic) IBOutlet UILabel *detailsLabel;
 
 @end
 
@@ -18,8 +21,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.navigationItem.title = self.businessName;
+    // self.navigationItem.title = self.dataPassed.restaurantName;
+    self.titleLabel.text = self.dataPassed.restaurantName;
+    self.addressLabel.text = self.dataPassed.restaurantAddress;
+    // self.detailsLabel.text = self.dataPassed.restaurantDistance;
     
+   
 }
 
 - (void)didReceiveMemoryWarning {
