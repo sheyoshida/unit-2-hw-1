@@ -21,8 +21,8 @@ UITextFieldDelegate
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property (weak, nonatomic) IBOutlet UITableView *listTableView;
 @property (nonatomic) NSMutableArray *searchResults;
-@property (nonatomic) NSArray *distance;
 @property (nonatomic) FourSquareSearchResult *businessDetails;
+@property (nonatomic) NSSortDescriptor *lowestToHighest;
 
 @end
 
@@ -38,11 +38,11 @@ UITextFieldDelegate
     self.searchTextField.delegate = self;
 }
 
-#pragma mark - Instagram API Request
-- (void)makeNewInstagramAPIRequestWithSearchTerm: (NSString *)searchTerm // pass instagram search term
-                                    callbackBlock:(void(^)())block { // call block
-   block();
-}
+//#pragma mark - Instagram API Request
+//- (void)makeNewInstagramAPIRequestWithSearchTerm: (NSString *)searchTerm // pass instagram search term
+//                                    callbackBlock:(void(^)())block { // call block
+//   block();
+//}
 
 #pragma mark - FourSquare API Request
 - (void)makeNewFourSquareAPIRequestWithSearchTerm: (NSString *)searchTerm // pass four square search term
@@ -74,7 +74,7 @@ UITextFieldDelegate
             
             NSArray *venues = [[json objectForKey:@"response"] objectForKey:@"venues"];
             
-          // NSLog(@"%@", venues);
+          //  NSLog(@"%@", venues);
             
             self.searchResults = [[NSMutableArray alloc]init]; // initialize storage for array
             
@@ -85,30 +85,35 @@ UITextFieldDelegate
                 
                 NSString *address = [venueLocation valueForKey:@"address"];
                 NSString *city = [venueLocation valueForKey:@"city"];
+                NSString *state = [venueLocation valueForKey:@"state"];
+               
+                NSString *distance = [venueLocation valueForKey:@"distance"];   // get the distance
+               
+                // convert string into double to calculate miles
+                double distanceConvertedToDouble = [distance doubleValue];
+                double metersInAMile = 1609.34;
+                double distanceInMiles = distanceConvertedToDouble / metersInAMile;
+                // NSLog(@"%.2f", distanceInMiles);
                 
-                NSString *distance = [venueLocation valueForKey:@"distance"];   // get the distance then learn how to sort it...
-              // NSLog(@"%@", distance);
-
-// include businesses without full address info:
-//                if (address == nil) {
-//                    address = @"";
-//                }
-//                if (city == nil) {
-//                    city = @"";
-//                }
-//                if (distance == nil) {
-//                    distance = @"";
-//                }
+                // then convert it back to a string...
+                NSString *stringInMiles = [NSString stringWithFormat:@"%.2f", distanceInMiles];
+                NSLog(@"%@", stringInMiles);
+                
+                // include all results, even the ones with missing addresses
+                if (address == nil){
+                    address = @"";
+                }
+                if (city == nil){
+                    city = @"";
+                }
                 
                 FourSquareSearchResult *resultsObject = [[FourSquareSearchResult alloc]init];
                 
                 resultsObject.restaurantName = venueName;
-                resultsObject.restaurantAddress = [NSString stringWithFormat:@"%@, %@", address, city];
-                resultsObject.restaurantDistance = distance;
+                resultsObject.restaurantAddress = [NSString stringWithFormat:@"%@, %@, %@", address, city, state];
+                resultsObject.restaurantDistance = [NSString stringWithFormat:@"distance: %@ miles", stringInMiles];
                 
                 [self.searchResults addObject:resultsObject];
-                
-                //NSLog(@"%@", self.searchResults);
             }
             block();
         }
@@ -140,10 +145,16 @@ UITextFieldDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:indexPath];
     
+    // organize results numerically
+//    self.lowestToHighest = [[NSSortDescriptor alloc]init];
+//    self.lowestToHighest = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES];
+//    [self.searchResults sortUsingDescriptors:[NSMutableArray arrayWithObject:self.lowestToHighest]];
+    
     FourSquareSearchResult *currentResult = self.searchResults[indexPath.row];
     
     cell.textLabel.text = currentResult.restaurantName;
-    cell.detailTextLabel.text = currentResult.restaurantAddress;
+    cell.detailTextLabel.text = currentResult.restaurantDistance;
+    //cell.detailTextLabel.text = currentResult.restaurantAddress;
     
     return cell;
 }

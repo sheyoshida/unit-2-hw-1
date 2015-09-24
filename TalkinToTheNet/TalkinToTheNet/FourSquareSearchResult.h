@@ -12,6 +12,9 @@
 
 @property (nonatomic) NSString *restaurantName;
 @property (nonatomic) NSString *restaurantAddress;
-@property (nonatomic) NSString *restaurantDistance; 
+@property (nonatomic) NSString *restaurantDistance;
+@property (nonatomic) NSString *restaurantPhoneNumber;
+@property (nonatomic) NSString *restaruantTwitterHandle;
+@property (nonatomic) NSString *restaurantDelivery;
 
 @end
