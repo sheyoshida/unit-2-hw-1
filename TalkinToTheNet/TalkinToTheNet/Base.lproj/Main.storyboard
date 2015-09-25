@@ -124,8 +124,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6x-Zf-nIS">
-                                <rect key="frame" x="20" y="319.5" width="560" height="20.5"/>
+                                <rect key="frame" x="20" y="319" width="560" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUV-tT-jen">
+                                <rect key="frame" x="245.5" y="380.5" width="109.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -140,12 +146,15 @@
                             <constraint firstItem="eEc-kA-kjS" firstAttribute="width" secondItem="S6x-Zf-nIS" secondAttribute="width" id="MjO-jY-L5q"/>
                             <constraint firstItem="DVx-RJ-NFr" firstAttribute="centerX" secondItem="1JX-P2-Tgk" secondAttribute="centerX" id="WIf-Tb-U1z"/>
                             <constraint firstItem="DVx-RJ-NFr" firstAttribute="leading" secondItem="1JX-P2-Tgk" secondAttribute="leadingMargin" id="aW6-fm-11d"/>
+                            <constraint firstItem="FUV-tT-jen" firstAttribute="top" secondItem="eEc-kA-kjS" secondAttribute="bottom" constant="10" id="dff-Id-SYR"/>
                             <constraint firstItem="eEc-kA-kjS" firstAttribute="top" secondItem="S6x-Zf-nIS" secondAttribute="bottom" constant="10" id="lHt-JL-VSm"/>
+                            <constraint firstItem="FUV-tT-jen" firstAttribute="centerX" secondItem="1JX-P2-Tgk" secondAttribute="centerX" id="mBz-fQ-tVe"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="S6x-Zf-nIS" id="5re-TX-6s4"/>
                         <outlet property="detailsLabel" destination="eEc-kA-kjS" id="ADO-iD-FKJ"/>
+                        <outlet property="instagramLabel" destination="FUV-tT-jen" id="FRJ-r2-Dur"/>
                         <outlet property="titleLabel" destination="DVx-RJ-NFr" id="I1Y-1P-9RA"/>
                     </connections>
                 </viewController>
