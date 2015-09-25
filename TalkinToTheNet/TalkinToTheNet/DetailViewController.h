@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "LocationViewController.h"
 #import "FourSquareSearchResult.h"
-
+#import "APIManager.h"
 
 @interface DetailViewController : UIViewController
 

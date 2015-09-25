@@ -146,16 +146,10 @@ UITextFieldDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:indexPath];
     
-    // organize results numerically
-//    self.lowestToHighest = [[NSSortDescriptor alloc]init];
-//    self.lowestToHighest = [NSSortDescriptor sortDescriptorWithKey:@"self" ascending:YES];
-//    [self.searchResults sortUsingDescriptors:[NSMutableArray arrayWithObject:self.lowestToHighest]];
-    
     FourSquareSearchResult *currentResult = self.searchResults[indexPath.row];
     
     cell.textLabel.text = currentResult.restaurantName;
     cell.detailTextLabel.text = currentResult.restaurantDistance;
-    //cell.detailTextLabel.text = currentResult.restaurantAddress;
     
     return cell;
 }

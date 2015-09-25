@@ -7,7 +7,7 @@
 //
 
 #import "DetailViewController.h"
-#import "APIManager.h"
+
 
 @interface DetailViewController ()
 
@@ -15,7 +15,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *addressLabel;
 @property (strong, nonatomic) IBOutlet UILabel *detailsLabel;
 
-@property (nonatomic) NSString *searchResults;
+//@property (nonatomic) NSString *searchResults;
 @property (nonatomic) IBOutlet UILabel *instagramLabel;
 
 @end
@@ -36,10 +36,9 @@
 }
 
 #pragma mark - Instagram API Request
-- (void) makeNewInstagramAPIRequestWithSearchTerm: (NSString *)searchTerm
-                                    callbackBlock:(void(^)())block {
+    - (void)makeNewInstagramAPIRequestWithSearchTerm: (NSString *)searchTerm // pass four square search term
+                                        callbackBlock:(void(^)())block { // call block
 
-    
     // search terms via url
      NSString *instagramURL = [NSString stringWithFormat:@"https://api.instagram.com/v1/tags/%@/media/recent?client_id=ac0ee52ebb154199bfabfb15b498c067", searchTerm];
     
@@ -47,9 +46,10 @@
     
     NSLog(@"my second api url: %@", encodedString); // test it
     
-    NSURL *url2 = [NSURL URLWithString:encodedString]; // convert to url
+    NSURL *url = [NSURL URLWithString:encodedString]; // convert to url
     
-    [APIManager GETRequestWithURL:url2 completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+    // for some reason part fails :(
+    [APIManager GETRequestWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
         if (data != nil) {
             NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
