@@ -97,7 +97,7 @@ UITableViewDataSource
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InstagramCellIdentifier" forIndexPath:indexPath];
     InstagramPost *post = self.instagramPosts[indexPath.row];
-    //cell.textLabel.text = post.username;
+    cell.textLabel.text = post.username;
     cell.detailTextLabel.text = post.caption[@"text"];
     return cell;
 }
