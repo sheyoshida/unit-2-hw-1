@@ -21,7 +21,6 @@ UITextFieldDelegate
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property (weak, nonatomic) IBOutlet UITableView *listTableView;
 @property (nonatomic) NSMutableArray *searchResults;
-@property (nonatomic) NSString *searchWords;
 
 @end
 
@@ -45,18 +44,8 @@ UITextFieldDelegate
     // search terms via url
     NSString *urlString = [NSString stringWithFormat:@"https://api.foursquare.com/v2/venues/search?client_id=M1KDUWRS5OBWUNQCXHHF23TAUEG2YOB0RXGBSP0LBVRCX2XL&client_secret=FWTAPZOJ4UBPUXX2R5Q1D5F3X0HXMCSMERWL4DJFW3UA33YX&v=20150919&ll=40.7,-74&query=%@", searchTerm];
     
-    self.searchWords = searchTerm;
-    
-    //self.searchWords = searchTerm;
-    //NSLog(@"%@", self.searchWords);
-    
-    
-    // &ll=40.7,-74 = latitude/longitude
-    
     // encode url strings (so you can search for more than one word with spaces!)
     NSString *encodedString = [urlString stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
-    
-    // NSLog(@"%@", encodedString); // test it!
     
     // convert urlString to url
     NSURL *url = [NSURL URLWithString:encodedString];
@@ -93,11 +82,9 @@ UITextFieldDelegate
                 double distanceConvertedToDouble = [distance doubleValue];
                 double metersInAMile = 1609.34;
                 double distanceInMiles = distanceConvertedToDouble / metersInAMile;
-                // NSLog(@"%.2f", distanceInMiles);
                 
                 // then convert it back to a string...
                 NSString *stringInMiles = [NSString stringWithFormat:@"%.2f", distanceInMiles];
-                // NSLog(@"%@", stringInMiles);
                 
                 // include all results, even the ones with missing addresses
                 if (address == nil){
@@ -112,7 +99,7 @@ UITextFieldDelegate
                 resultsObject.restaurantName = venueName;
                 resultsObject.restaurantAddress = [NSString stringWithFormat:@"%@, %@, %@", address, city, state];
                 resultsObject.restaurantDistance = [NSString stringWithFormat:@"distance: %@ miles", stringInMiles];
-                resultsObject.restaurantSearchTerm = self.searchWords;
+                //resultsObject.restaurantSearchTerm = self.searchWords;
                 
                 [self.searchResults addObject:resultsObject];
             }

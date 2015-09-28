@@ -29,7 +29,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This Is My App's Title! " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdi-2H-sYY">
                                         <rect key="frame" x="15" y="59.5" width="570" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -59,14 +59,14 @@
                                                     <rect key="frame" x="15" y="6" width="31.5" height="19.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vA8-eE-1U6">
                                                     <rect key="frame" x="15" y="25.5" width="40.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -112,55 +112,82 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Business Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVx-RJ-NFr">
-                                <rect key="frame" x="20" y="289" width="560" height="20.5"/>
+                                <rect key="frame" x="20" y="460" width="560" height="20.5"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eEc-kA-kjS">
-                                <rect key="frame" x="20" y="350" width="560" height="20.5"/>
+                                <rect key="frame" x="20" y="521" width="560" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S6x-Zf-nIS">
-                                <rect key="frame" x="20" y="319" width="560" height="20.5"/>
+                                <rect key="frame" x="20" y="490" width="560" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FUV-tT-jen">
-                                <rect key="frame" x="245.5" y="380.5" width="109.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="v3a-3x-64l">
+                                <rect key="frame" x="0.0" y="64" width="600" height="381"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="InstagramCellIdentifier" textLabel="ZpP-8D-v90" detailTextLabel="kY3-ip-eCj" style="IBUITableViewCellStyleSubtitle" id="Y5u-9d-65b">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="130"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Y5u-9d-65b" id="5Ll-Pp-xaO">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="129.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZpP-8D-v90">
+                                                    <rect key="frame" x="15" y="49" width="31.5" height="19.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="kY3-ip-eCj">
+                                                    <rect key="frame" x="15" y="68.5" width="40.5" height="13.5"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="DVx-RJ-NFr" firstAttribute="trailing" secondItem="1JX-P2-Tgk" secondAttribute="trailingMargin" id="3Gu-nk-67E"/>
                             <constraint firstItem="S6x-Zf-nIS" firstAttribute="width" secondItem="DVx-RJ-NFr" secondAttribute="width" id="3jG-4A-5vQ"/>
                             <constraint firstItem="S6x-Zf-nIS" firstAttribute="centerX" secondItem="1JX-P2-Tgk" secondAttribute="centerX" id="3zV-bI-Ses"/>
-                            <constraint firstItem="DVx-RJ-NFr" firstAttribute="centerY" secondItem="1JX-P2-Tgk" secondAttribute="centerY" id="4Jn-Qh-Zb4"/>
+                            <constraint firstItem="DVx-RJ-NFr" firstAttribute="centerY" secondItem="1JX-P2-Tgk" secondAttribute="centerY" constant="170.25" id="4Jn-Qh-Zb4"/>
+                            <constraint firstItem="v3a-3x-64l" firstAttribute="top" secondItem="Qva-QT-dFP" secondAttribute="bottom" id="6OQ-iD-Dbc"/>
                             <constraint firstItem="eEc-kA-kjS" firstAttribute="centerX" secondItem="1JX-P2-Tgk" secondAttribute="centerX" id="Fpu-6B-Irx"/>
                             <constraint firstItem="S6x-Zf-nIS" firstAttribute="top" secondItem="DVx-RJ-NFr" secondAttribute="bottom" constant="10" id="MAI-Pw-CIr"/>
                             <constraint firstItem="eEc-kA-kjS" firstAttribute="width" secondItem="S6x-Zf-nIS" secondAttribute="width" id="MjO-jY-L5q"/>
+                            <constraint firstItem="v3a-3x-64l" firstAttribute="leading" secondItem="1JX-P2-Tgk" secondAttribute="leadingMargin" constant="-20" id="T75-Qx-Tqg"/>
                             <constraint firstItem="DVx-RJ-NFr" firstAttribute="centerX" secondItem="1JX-P2-Tgk" secondAttribute="centerX" id="WIf-Tb-U1z"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="v3a-3x-64l" secondAttribute="trailing" constant="-20" id="aNX-PF-89U"/>
                             <constraint firstItem="DVx-RJ-NFr" firstAttribute="leading" secondItem="1JX-P2-Tgk" secondAttribute="leadingMargin" id="aW6-fm-11d"/>
-                            <constraint firstItem="FUV-tT-jen" firstAttribute="top" secondItem="eEc-kA-kjS" secondAttribute="bottom" constant="10" id="dff-Id-SYR"/>
                             <constraint firstItem="eEc-kA-kjS" firstAttribute="top" secondItem="S6x-Zf-nIS" secondAttribute="bottom" constant="10" id="lHt-JL-VSm"/>
-                            <constraint firstItem="FUV-tT-jen" firstAttribute="centerX" secondItem="1JX-P2-Tgk" secondAttribute="centerX" id="mBz-fQ-tVe"/>
+                            <constraint firstItem="DVx-RJ-NFr" firstAttribute="top" secondItem="v3a-3x-64l" secondAttribute="bottom" constant="15" id="oJb-cc-Dd0"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="addressLabel" destination="S6x-Zf-nIS" id="5re-TX-6s4"/>
                         <outlet property="detailsLabel" destination="eEc-kA-kjS" id="ADO-iD-FKJ"/>
-                        <outlet property="instagramLabel" destination="FUV-tT-jen" id="FRJ-r2-Dur"/>
+                        <outlet property="tableView" destination="v3a-3x-64l" id="DhC-cc-2aL"/>
                         <outlet property="titleLabel" destination="DVx-RJ-NFr" id="I1Y-1P-9RA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lMT-eC-7cM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1545" y="-265"/>
+            <point key="canvasLocation" x="1601" y="-263"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qBm-vN-put">

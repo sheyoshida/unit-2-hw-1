@@ -11,7 +11,7 @@
 @implementation APIManager
 
 + (void)GETRequestWithURL:(NSURL *)URL // + makes it a class method, we don't have to alloc init it! 
-        completionHandler:(void(^)(NSData *data, NSURLResponse *response, NSError *error))completionHandler {
+        completionHandler:(void(^)(NSData *data, NSURLResponse *response, NSError *error))completionBlock {
     
     // access the shared session
     NSURLSession *session = [NSURLSession sharedSession];
@@ -21,7 +21,7 @@
         
         // moving back to the main thread
         dispatch_async(dispatch_get_main_queue(), ^{
-            completionHandler(data, response, error);
+            completionBlock(data, response, error);
         });
     }];
     

@@ -13,7 +13,7 @@
 @property (nonatomic) NSString *restaurantName;
 @property (nonatomic) NSString *restaurantAddress;
 @property (nonatomic) NSString *restaurantDistance;
-@property (nonatomic) NSString *restaurantPhoneNumber;
-@property (nonatomic) NSString *restaurantSearchTerm; 
+//@property (nonatomic) NSString *restaurantPhoneNumber;
+//@property (nonatomic) NSString *restaurantSearchTerm;
 
 @end

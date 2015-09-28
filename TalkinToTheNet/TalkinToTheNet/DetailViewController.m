@@ -7,16 +7,21 @@
 //
 
 #import "DetailViewController.h"
+#import "InstagramPost.h"
 
 
 @interface DetailViewController ()
+<
+UITableViewDelegate,
+UITableViewDataSource
+>
 
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *addressLabel;
 @property (strong, nonatomic) IBOutlet UILabel *detailsLabel;
+@property (nonatomic) IBOutlet UITableView *tableView;
 
-//@property (nonatomic) NSString *searchResults;
-@property (nonatomic) IBOutlet UILabel *instagramLabel;
+@property (nonatomic) NSMutableArray *instagramPosts;
 
 @end
 
@@ -24,45 +29,77 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
 
     self.titleLabel.text = self.dataPassed.restaurantName;
     self.addressLabel.text = self.dataPassed.restaurantAddress;
     self.detailsLabel.text = self.dataPassed.restaurantDistance;
     
-    [self makeNewInstagramAPIRequestWithSearchTerm: self.dataPassed.restaurantSearchTerm callbackBlock:^{
-        [self.instagramLabel reloadInputViews];
-    }];
-    
+    [self fetchInstagramData];
 }
 
-#pragma mark - Instagram API Request
-    - (void)makeNewInstagramAPIRequestWithSearchTerm: (NSString *)searchTerm // pass four square search term
-                                        callbackBlock:(void(^)())block { // call block
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
 
-    // search terms via url
-     NSString *instagramURL = [NSString stringWithFormat:@"https://api.instagram.com/v1/tags/%@/media/recent?client_id=ac0ee52ebb154199bfabfb15b498c067", searchTerm];
+#pragma mark - fetchInstagramData
+
+- (void)fetchInstagramData {
     
-    NSString *encodedString = [instagramURL stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]; // encode string so that it can support more than one word
+   NSString *tagName = [self.dataPassed.restaurantName stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *tagNameWithoutCharacter = [tagName stringByReplacingOccurrencesOfString:@"'" withString:@""];
     
-    NSLog(@"my second api url: %@", encodedString); // test it
+    NSString *url = [NSString stringWithFormat:@"https://api.instagram.com/v1/tags/%@/media/recent?client_id=ac0ee52ebb154199bfabfb15b498c067", tagNameWithoutCharacter];
     
-    NSURL *url = [NSURL URLWithString:encodedString]; // convert to url
+    NSURL *instagramURL = [NSURL URLWithString:url]; // create url
     
-    // for some reason part fails :(
-    [APIManager GETRequestWithURL:url completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+      NSLog(@"this is my url: %@", instagramURL); // test it! it works! 
+    
+    [APIManager GETRequestWithURL:instagramURL completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         
         if (data != nil) {
-            NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+        
+        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+       
+        NSLog(@"JSON %@", json);
             
-            NSArray *venues = [[json objectForKey:@"data"] objectForKey:@"link"];
+        NSArray *results = json[@"data"];
+        
+        NSLog(@"RESULTS: %@", results);
+        
+        self.instagramPosts = [[NSMutableArray alloc] init]; // create/reset array
+        
+        for (NSDictionary *result in results) {
             
-            NSLog(@"%@", venues);
+            // create new post from json
+            InstagramPost *post = [[InstagramPost alloc] initWithJSON:result];
             
+            // add post to array
+            [self.instagramPosts addObject:post];
         }
-        block();
-    }];
+        
+        [self.tableView reloadData];
+        }
+        }];
 }
 
+#pragma mark - tableView
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.instagramPosts.count;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InstagramCellIdentifier" forIndexPath:indexPath];
+    InstagramPost *post = self.instagramPosts[indexPath.row];
+    //cell.textLabel.text = post.username;
+    cell.detailTextLabel.text = post.caption[@"text"];
+    return cell;
+}
 
 @end
