@@ -8,6 +8,7 @@
 
 #import "DetailViewController.h"
 #import "InstagramPost.h"
+#import "Colours.h"
 
 
 @interface DetailViewController ()
@@ -23,6 +24,9 @@ UITableViewDataSource
 
 @property (nonatomic) NSMutableArray *instagramPosts;
 
+@property (nonatomic) NSArray *colorArray;
+@property (nonatomic) NSInteger currIndexColor;
+
 @end
 
 @implementation DetailViewController
@@ -36,6 +40,17 @@ UITableViewDataSource
     self.titleLabel.text = self.dataPassed.restaurantName;
     self.addressLabel.text = self.dataPassed.restaurantAddress;
     self.detailsLabel.text = self.dataPassed.restaurantDistance;
+    
+    // use cool Color open source files
+    self.currIndexColor = 0;
+    UIColor *color = [UIColor snowColor];
+    self.colorArray = [color colorSchemeOfType:ColorSchemeMonochromatic];
+    
+    self.view.backgroundColor = color;
+    self.tableView.backgroundColor = color;
+    self.titleLabel.textColor = [color darken:0.60f];
+    self.addressLabel.textColor = [color darken:0.50f];
+    self.detailsLabel.textColor = [color darken:0.50f];
     
     [self fetchInstagramData];
 }
@@ -100,6 +115,13 @@ UITableViewDataSource
     cell.textLabel.text = post.username;
     cell.detailTextLabel.text = post.caption[@"text"];
     return cell;
+}
+
+- (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [cell setBackgroundColor:[UIColor clearColor]]; // keep tableview cell color from changing back to white
+    cell.textLabel.textColor = [[UIColor linenColor]darken:0.50f];
+    cell.detailTextLabel.textColor = [[UIColor linenColor]darken:0.25f];
 }
 
 @end

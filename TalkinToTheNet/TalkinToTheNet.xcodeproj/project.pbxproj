@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		226305A0A47AA4A9AB760C0D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 915C635DE7E898337FB2CA0D /* libPods.a */; };
+		4D0251691BBA181600752D73 /* Colours.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D0251681BBA181600752D73 /* Colours.m */; settings = {ASSET_TAGS = (); }; };
 		4D82B1811BB0AD7300333EE9 /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D82B1801BB0AD7300333EE9 /* APIManager.m */; settings = {ASSET_TAGS = (); }; };
 		4D82B1841BB0B03200333EE9 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D82B1831BB0B03200333EE9 /* DetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		4D82B1871BB0B17700333EE9 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D82B1861BB0B17700333EE9 /* LocationViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -21,6 +22,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D0251671BBA181600752D73 /* Colours.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Colours.h; sourceTree = "<group>"; };
+		4D0251681BBA181600752D73 /* Colours.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Colours.m; sourceTree = "<group>"; };
 		4D82B17F1BB0AD7300333EE9 /* APIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		4D82B1801BB0AD7300333EE9 /* APIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		4D82B1821BB0B03200333EE9 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
@@ -104,6 +107,8 @@
 				4D82B1861BB0B17700333EE9 /* LocationViewController.m */,
 				4D82B1821BB0B03200333EE9 /* DetailViewController.h */,
 				4D82B1831BB0B03200333EE9 /* DetailViewController.m */,
+				4D0251671BBA181600752D73 /* Colours.h */,
+				4D0251681BBA181600752D73 /* Colours.m */,
 				4DF8BA801BB9C52D00EFB5E6 /* InstagramPost.h */,
 				4DF8BA811BB9C52D00EFB5E6 /* InstagramPost.m */,
 				8D7DCD521BAF859400A92AD2 /* Main.storyboard */,
@@ -231,6 +236,7 @@
 				4D82B1841BB0B03200333EE9 /* DetailViewController.m in Sources */,
 				4DF8BA821BB9C52D00EFB5E6 /* InstagramPost.m in Sources */,
 				4D82B1811BB0AD7300333EE9 /* APIManager.m in Sources */,
+				4D0251691BBA181600752D73 /* Colours.m in Sources */,
 				8D7DCD4E1BAF859400A92AD2 /* AppDelegate.m in Sources */,
 				4D82B18A1BB0B98600333EE9 /* FourSquareSearchResult.m in Sources */,
 				8D7DCD4B1BAF859400A92AD2 /* main.m in Sources */,

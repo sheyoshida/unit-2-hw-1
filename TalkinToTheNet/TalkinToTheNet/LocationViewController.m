@@ -10,6 +10,7 @@
 #import "DetailViewController.h"
 #import "FourSquareSearchResult.h"
 #import "APIManager.h"
+#import "Colours.h"
 
 @interface LocationViewController ()
 <
@@ -21,6 +22,9 @@ UITextFieldDelegate
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property (weak, nonatomic) IBOutlet UITableView *listTableView;
 @property (nonatomic) NSMutableArray *searchResults;
+
+@property (nonatomic) NSArray *colorArray;
+@property (nonatomic) NSInteger currIndexColor;
 
 @end
 
@@ -34,6 +38,23 @@ UITextFieldDelegate
     self.listTableView.delegate = self;
     self.listTableView.dataSource = self;
     self.searchTextField.delegate = self;
+    
+    // use cool Color open source files
+    self.currIndexColor = 0;
+    UIColor *color = [UIColor snowColor];
+    self.colorArray = [color colorSchemeOfType:ColorSchemeMonochromatic];
+    
+    self.view.backgroundColor = color;
+    
+    
+    self.searchTextField.backgroundColor = [UIColor ghostWhiteColor];
+    self.searchTextField.textColor = [color darken:0.50f];
+  
+    self.listTableView.backgroundColor = color;
+    
+   
+    
+  
 }
 
 
@@ -139,6 +160,13 @@ UITextFieldDelegate
     cell.detailTextLabel.text = currentResult.restaurantDistance;
     
     return cell;
+}
+
+- (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [cell setBackgroundColor:[UIColor clearColor]]; // keep tableview cell color from changing back to white
+    cell.textLabel.textColor = [[UIColor linenColor]darken:0.50f];
+    cell.detailTextLabel.textColor = [[UIColor linenColor]darken:0.25f];
 }
 
 #pragma mark - prepareForSegue
