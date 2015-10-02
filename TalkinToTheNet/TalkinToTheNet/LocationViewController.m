@@ -11,6 +11,7 @@
 #import "FourSquareSearchResult.h"
 #import "APIManager.h"
 #import "Colours.h"
+#import <pop/POP.h>
 
 @interface LocationViewController ()
 <
@@ -21,6 +22,7 @@ UITextFieldDelegate
 
 @property (weak, nonatomic) IBOutlet UITextField *searchTextField;
 @property (weak, nonatomic) IBOutlet UITableView *listTableView;
+@property (weak, nonatomic) IBOutlet UIButton *pizzaButton;
 @property (nonatomic) NSMutableArray *searchResults;
 
 @property (nonatomic) NSArray *colorArray;
@@ -46,16 +48,25 @@ UITextFieldDelegate
     
     self.view.backgroundColor = color;
     
-    
     self.searchTextField.backgroundColor = [UIColor ghostWhiteColor];
     self.searchTextField.textColor = [color darken:0.50f];
   
     self.listTableView.backgroundColor = color;
     self.listTableView.separatorColor = [color darken:0.25f];
+}
+
+#pragma mark - ANIMATE PIZZA!!!
+
+- (void)animatePizzaButton {
     
-   
+    POPSpringAnimation *spin = [POPSpringAnimation animationWithPropertyNamed:kPOPLayerRotation];
     
-  
+    spin.fromValue = @(M_PI / 4);
+    spin.toValue = @(5);
+    spin.springBounciness = 5;
+    spin.velocity = @(1);
+    
+    [self.pizzaButton.layer pop_addAnimation:spin forKey:nil];
 }
 
 
@@ -138,6 +149,8 @@ UITextFieldDelegate
     [self makeNewFourSquareAPIRequestWithSearchTerm:textField.text callbackBlock:^{ //make an API request
         
         [self.listTableView reloadData]; // reload table data
+        
+        [self animatePizzaButton]; // animate pizza
     }];
     return YES;
 }
@@ -155,6 +168,15 @@ UITextFieldDelegate
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CellIdentifier" forIndexPath:indexPath];
     
+    // animate table cells
+    POPSpringAnimation *sprintAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewScaleXY];
+    sprintAnimation.toValue = [NSValue valueWithCGPoint:CGPointMake(0.9, 0.9)];
+    sprintAnimation.velocity = [NSValue valueWithCGPoint:CGPointMake(2, 2)];
+    sprintAnimation.springBounciness = 20.f;
+    [cell.textLabel pop_addAnimation:sprintAnimation forKey:nil];
+    [cell.detailTextLabel pop_addAnimation:sprintAnimation forKey:nil];
+    
+    // other table cell setup
     FourSquareSearchResult *currentResult = self.searchResults[indexPath.row];
     
     cell.textLabel.text = currentResult.restaurantName;

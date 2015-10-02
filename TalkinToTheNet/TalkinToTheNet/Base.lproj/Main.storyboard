@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -18,38 +19,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V49-m3-9d7">
-                                <rect key="frame" x="0.0" y="64" width="600" height="130"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vdi-2H-sYY">
-                                        <rect key="frame" x="15" y="80" width="570" height="0.0"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MMMM FOOD: " clearsOnBeginEditing="YES" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yBo-9b-k1x">
-                                        <rect key="frame" x="15" y="90" width="570" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes"/>
-                                    </textField>
-                                </subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="MMMM FOOD: " clearsOnBeginEditing="YES" minimumFontSize="20" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yBo-9b-k1x">
+                                <rect key="frame" x="70" y="254" width="460" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="yes" spellCheckingType="yes"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5L-OP-jm0">
+                                <rect key="frame" x="225" y="84" width="150" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Vdi-2H-sYY" secondAttribute="trailing" constant="15" id="HFT-Jt-11N"/>
-                                    <constraint firstAttribute="bottom" secondItem="yBo-9b-k1x" secondAttribute="bottom" constant="10" id="JfT-W7-cgY"/>
-                                    <constraint firstItem="Vdi-2H-sYY" firstAttribute="leading" secondItem="V49-m3-9d7" secondAttribute="leading" constant="15" id="LGG-G1-Sbx"/>
-                                    <constraint firstAttribute="height" constant="130" id="URa-FD-tBc"/>
-                                    <constraint firstItem="yBo-9b-k1x" firstAttribute="top" secondItem="Vdi-2H-sYY" secondAttribute="bottom" constant="10" id="gMg-60-gey"/>
-                                    <constraint firstItem="yBo-9b-k1x" firstAttribute="leading" secondItem="V49-m3-9d7" secondAttribute="leading" constant="15" id="iDO-Ox-mYW"/>
-                                    <constraint firstAttribute="trailing" secondItem="yBo-9b-k1x" secondAttribute="trailing" constant="15" id="y4d-46-7zK"/>
+                                    <constraint firstAttribute="height" constant="150" id="CTe-IL-5eX"/>
+                                    <constraint firstAttribute="width" constant="150" id="QTC-IM-Zqm"/>
+                                    <constraint firstAttribute="width" secondItem="a5L-OP-jm0" secondAttribute="height" multiplier="1:1" id="bho-Wm-dpG"/>
                                 </constraints>
-                            </view>
+                                <state key="normal" image="pizza"/>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CFt-zS-PyC">
-                                <rect key="frame" x="0.0" y="193" width="600" height="407"/>
+                                <rect key="frame" x="0.0" y="289" width="600" height="311"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CellIdentifier" textLabel="Qts-tt-AH2" detailTextLabel="vA8-eE-1U6" style="IBUITableViewCellStyleSubtitle" id="LI5-Hs-bdN">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LI5-Hs-bdN" id="wMS-Pa-jVs">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -63,7 +53,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vA8-eE-1U6">
-                                                    <rect key="frame" x="15" y="25.5" width="40.5" height="13.5"/>
+                                                    <rect key="frame" x="15" y="25" width="40.5" height="13.5"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -80,18 +70,31 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="V49-m3-9d7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="IOW-ox-OFb"/>
-                            <constraint firstItem="V49-m3-9d7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="VPg-9q-6BQ"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="V49-m3-9d7" secondAttribute="trailing" constant="-20" id="bHY-TC-dxM"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="yBo-9b-k1x" secondAttribute="trailing" constant="50" id="JfV-lY-zDa"/>
+                            <constraint firstItem="CFt-zS-PyC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="125" id="Naq-Ed-PIn"/>
+                            <constraint firstItem="yBo-9b-k1x" firstAttribute="top" secondItem="a5L-OP-jm0" secondAttribute="bottom" constant="20" id="P0s-jW-LuX"/>
+                            <constraint firstItem="CFt-zS-PyC" firstAttribute="top" secondItem="a5L-OP-jm0" secondAttribute="bottom" constant="20" id="bdk-ef-NFh"/>
+                            <constraint firstItem="yBo-9b-k1x" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="hQq-bB-un8"/>
                             <constraint firstAttribute="trailingMargin" secondItem="CFt-zS-PyC" secondAttribute="trailing" constant="-20" id="mFZ-7C-z0Q"/>
+                            <constraint firstItem="a5L-OP-jm0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="oMR-Cg-atm"/>
+                            <constraint firstItem="a5L-OP-jm0" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="ppJ-VT-3Ad"/>
                             <constraint firstItem="CFt-zS-PyC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="193" id="r2T-yw-Lfs"/>
+                            <constraint firstItem="CFt-zS-PyC" firstAttribute="top" secondItem="yBo-9b-k1x" secondAttribute="bottom" constant="5" id="v9y-JF-BJP"/>
                             <constraint firstItem="CFt-zS-PyC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="vgC-rA-tJZ"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="CFt-zS-PyC" secondAttribute="bottom" id="wjM-k1-Kyg"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Naq-Ed-PIn"/>
+                                <exclude reference="bdk-ef-NFh"/>
+                                <exclude reference="r2T-yw-Lfs"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="eWy-mo-Iph"/>
                     <connections>
                         <outlet property="listTableView" destination="CFt-zS-PyC" id="cDn-6D-kmd"/>
+                        <outlet property="pizzaButton" destination="a5L-OP-jm0" id="iV8-Xg-pF7"/>
                         <outlet property="searchTextField" destination="yBo-9b-k1x" id="DcD-AG-WIH"/>
                     </connections>
                 </viewController>
@@ -221,4 +224,7 @@
             <point key="canvasLocation" x="282" y="-263"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pizza" width="300" height="300"/>
+    </resources>
 </document>
