@@ -22,6 +22,7 @@
         self.caption = json[@"caption"];
         self.username = json[@"user"][@"username"];
         self.fullName = json[@"user"][@"full_name"];
+        self.imageURL = json[@"images"][@"standard_resolution"][@"url"];
         
         return self;
     }

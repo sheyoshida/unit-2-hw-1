@@ -9,6 +9,8 @@
 #import "DetailViewController.h"
 #import "InstagramPost.h"
 #import "Colours.h"
+#import "DetailTableViewCell.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 
 @interface DetailViewController ()
@@ -51,6 +53,14 @@ UITableViewDataSource
     self.titleLabel.textColor = [color darken:0.60f];
     self.addressLabel.textColor = [color darken:0.50f];
     self.detailsLabel.textColor = [color darken:0.50f];
+    
+    // add .xib for custom tableviewcell
+    UINib *nib = [UINib nibWithNibName:@"DetailTableViewCell" bundle:nil];
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"InstagramCellIdentifier"];
+    
+    // tableview adjusts to cell size
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 40.0;
     
     [self fetchInstagramData];
 }
@@ -110,10 +120,21 @@ UITableViewDataSource
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InstagramCellIdentifier" forIndexPath:indexPath];
-    InstagramPost *post = self.instagramPosts[indexPath.row];
-    cell.textLabel.text = post.username;
-    cell.detailTextLabel.text = post.caption[@"text"];
+    // edit for custom cell
+    DetailTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"InstagramCellIdentifier" forIndexPath:indexPath];     InstagramPost *post = self.instagramPosts[indexPath.row];
+
+// for original tableviewcells:
+//    cell.textLabel.text = post.username;
+//    cell.detailTextLabel.text = post.caption[@"text"];
+
+    cell.captionLabel.text = post.caption[@"text"];
+    
+    NSURL *url = [NSURL URLWithString:post.imageURL];
+    [cell.userMediaImageView sd_setImageWithURL:url
+                                      completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        cell.userMediaImageView.image = image;
+    }];
+    
     return cell;
 }
 
@@ -121,7 +142,9 @@ UITableViewDataSource
     
     [cell setBackgroundColor:[UIColor clearColor]]; // keep tableview cell color from changing back to white
     cell.textLabel.textColor = [[UIColor linenColor]darken:0.50f];
+    cell.textLabel.font = [UIFont fontWithName:@"Avenir-Light" size:24];
     cell.detailTextLabel.textColor = [[UIColor linenColor]darken:0.25f];
+    cell.detailTextLabel.font = [UIFont fontWithName:@"Avenir-Light" size:20];
 }
 
 @end

@@ -14,6 +14,8 @@
 		4D82B1871BB0B17700333EE9 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D82B1861BB0B17700333EE9 /* LocationViewController.m */; settings = {ASSET_TAGS = (); }; };
 		4D82B18A1BB0B98600333EE9 /* FourSquareSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D82B1891BB0B98600333EE9 /* FourSquareSearchResult.m */; settings = {ASSET_TAGS = (); }; };
 		4DF8BA821BB9C52D00EFB5E6 /* InstagramPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF8BA811BB9C52D00EFB5E6 /* InstagramPost.m */; settings = {ASSET_TAGS = (); }; };
+		4DFA748E1BBEFBFD0004B149 /* DetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DFA748D1BBEFBFD0004B149 /* DetailTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		4DFA74901BBEFC110004B149 /* DetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DFA748F1BBEFC110004B149 /* DetailTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		8D7DCD4B1BAF859400A92AD2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7DCD4A1BAF859400A92AD2 /* main.m */; };
 		8D7DCD4E1BAF859400A92AD2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D7DCD4D1BAF859400A92AD2 /* AppDelegate.m */; };
 		8D7DCD541BAF859400A92AD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D7DCD521BAF859400A92AD2 /* Main.storyboard */; };
@@ -34,6 +36,9 @@
 		4D82B1891BB0B98600333EE9 /* FourSquareSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FourSquareSearchResult.m; sourceTree = "<group>"; };
 		4DF8BA801BB9C52D00EFB5E6 /* InstagramPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstagramPost.h; sourceTree = "<group>"; };
 		4DF8BA811BB9C52D00EFB5E6 /* InstagramPost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstagramPost.m; sourceTree = "<group>"; };
+		4DFA748C1BBEFBFD0004B149 /* DetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailTableViewCell.h; sourceTree = "<group>"; };
+		4DFA748D1BBEFBFD0004B149 /* DetailTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewCell.m; sourceTree = "<group>"; };
+		4DFA748F1BBEFC110004B149 /* DetailTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailTableViewCell.xib; sourceTree = "<group>"; };
 		861D38F7F6687038BDABDE3E /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		8D7DCD461BAF859400A92AD2 /* TalkinToTheNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TalkinToTheNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D7DCD4A1BAF859400A92AD2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -107,6 +112,9 @@
 				4D82B1861BB0B17700333EE9 /* LocationViewController.m */,
 				4D82B1821BB0B03200333EE9 /* DetailViewController.h */,
 				4D82B1831BB0B03200333EE9 /* DetailViewController.m */,
+				4DFA748C1BBEFBFD0004B149 /* DetailTableViewCell.h */,
+				4DFA748D1BBEFBFD0004B149 /* DetailTableViewCell.m */,
+				4DFA748F1BBEFC110004B149 /* DetailTableViewCell.xib */,
 				4D0251671BBA181600752D73 /* Colours.h */,
 				4D0251681BBA181600752D73 /* Colours.m */,
 				4DF8BA801BB9C52D00EFB5E6 /* InstagramPost.h */,
@@ -189,6 +197,7 @@
 			files = (
 				8D7DCD591BAF859400A92AD2 /* LaunchScreen.storyboard in Resources */,
 				8D7DCD561BAF859400A92AD2 /* Assets.xcassets in Resources */,
+				4DFA74901BBEFC110004B149 /* DetailTableViewCell.xib in Resources */,
 				8D7DCD541BAF859400A92AD2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -236,6 +245,7 @@
 				4D82B1841BB0B03200333EE9 /* DetailViewController.m in Sources */,
 				4DF8BA821BB9C52D00EFB5E6 /* InstagramPost.m in Sources */,
 				4D82B1811BB0AD7300333EE9 /* APIManager.m in Sources */,
+				4DFA748E1BBEFBFD0004B149 /* DetailTableViewCell.m in Sources */,
 				4D0251691BBA181600752D73 /* Colours.m in Sources */,
 				8D7DCD4E1BAF859400A92AD2 /* AppDelegate.m in Sources */,
 				4D82B18A1BB0B98600333EE9 /* FourSquareSearchResult.m in Sources */,

@@ -51,6 +51,7 @@ UITextFieldDelegate
     self.searchTextField.textColor = [color darken:0.50f];
   
     self.listTableView.backgroundColor = color;
+    self.listTableView.separatorColor = [color darken:0.25f];
     
    
     
